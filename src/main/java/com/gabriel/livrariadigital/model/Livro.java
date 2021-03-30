@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Getter
-@Setter()
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
