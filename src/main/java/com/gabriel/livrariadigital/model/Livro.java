@@ -8,6 +8,7 @@ import org.apache.commons.validator.routines.ISBNValidator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -21,7 +22,7 @@ import javax.validation.constraints.NotNull;
 public class Livro {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @NotNull
@@ -42,7 +43,7 @@ public class Livro {
     @NotNull
     private String editora;
 
-    public boolean setIsbn(String isbn) {
+    public boolean isValid(String isbn) {
         ISBNValidator validator = new ISBNValidator();
         return validator.isValidISBN13(isbn);
     }
