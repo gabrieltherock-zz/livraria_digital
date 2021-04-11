@@ -4,6 +4,7 @@ import com.gabriel.livrariadigital.model.Livro;
 import com.gabriel.livrariadigital.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,19 +29,14 @@ public class LivroController {
     }
 
     @GetMapping(value = "/novoLivro")
-    public String getLivroForm() {
+    public String getLivroForm(Model model) {
+        model.addAttribute("livro", new Livro());
         return "livroForm";
     }
 
     @PostMapping(value = "/novoLivro")
-    public String adicionarLivro(@Valid Livro livro, BindingResult result, RedirectAttributes attributes) {
-        if (result.hasErrors()) {
-            attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
-            return "redirect:/novoLivro";
-        }
-        if (livro.isValid(livro.getIsbn()))
-            service.save(livro);
-
+    public String adicionarLivro(Livro livro) {
+        service.save(livro);
         return "redirect:/livros";
     }
 }

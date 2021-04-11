@@ -22,7 +22,7 @@ import javax.validation.constraints.NotNull;
 public class Livro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
