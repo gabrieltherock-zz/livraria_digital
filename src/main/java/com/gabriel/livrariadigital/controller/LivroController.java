@@ -41,6 +41,6 @@ public class LivroController {
         if (livro.isValid(livro.getIsbn()))
             service.save(livro);
 
-        return "redirect:/posts";
+        return "redirect:/livros";
     }
 }
