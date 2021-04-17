@@ -24,9 +24,6 @@
                 <form action="#" th:action="@{/novoLivro}" th:object="${livro}"
                       method="post">
                     <div class="row">
-                        <div class="col-md-6">
-                            <input type="submit" class="btn btn-primary" value=" Enviar ">
-                        </div>
                         <div class="form-group col-md-8">
                             <label for="isbn" class="col-form-label">ISBN</label>
                             <input type="text" th:field="*{isbn}" class="form-control"
@@ -56,6 +53,9 @@
                             <label for="editora" class="col-form-label">Editora</label>
                             <input type="text" th:field="*{editora}" class="form-control"
                                    id="editora" placeholder="Editora" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Enviar ">
                         </div>
                     </div>
                 </form>

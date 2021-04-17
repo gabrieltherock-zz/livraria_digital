@@ -35,7 +35,10 @@ public class LivroController {
     }
 
     @PostMapping(value = "/novoLivro")
-    public String adicionarLivro(Livro livro) {
+    public String adicionarLivro(@Valid Livro livro,BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/livros";
+        }
         service.save(livro);
         return "redirect:/livros";
     }

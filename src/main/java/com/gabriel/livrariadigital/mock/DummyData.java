@@ -19,8 +19,8 @@ public class DummyData {
         livro.setIsbn("9780267401383");
         livro.setAutor("Gabriel");
         livro.setTitulo("O Estagiário");
-        livro.setAno("2021");
-        livro.setEdicao("1");
+        livro.setAno(2021);
+        livro.setEdicao(1);
         livro.setEditora("Aleph");
 
         service.save(livro);

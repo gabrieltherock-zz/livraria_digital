@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -26,21 +27,27 @@ public class Livro {
     private Long id;
 
     @NotNull
+    @Size(min = 1, max = 13)
     private String isbn;
 
     @NotNull
+    @Size(min = 1, max = 50)
     private String titulo;
 
     @NotNull
+    @Size(min = 1, max = 50)
     private String autor;
 
     @NotNull
-    private String ano;
+    @Size(min = 1, max = 4)
+    private Integer ano;
 
     @NotNull
-    private String edicao;
+    @Size(min = 1, max = 2)
+    private Integer edicao;
 
     @NotNull
+    @Size(min = 1, max = 50)
     private String editora;
 
     public boolean isValid(String isbn) {
