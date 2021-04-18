@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -28,13 +27,13 @@ public class LivroController {
         return mv;
     }
 
-    @GetMapping(value = "/novoLivro")
+    @GetMapping(value = "/novolivro")
     public String getLivroForm(Model model) {
         model.addAttribute("livro", new Livro());
         return "livroForm";
     }
 
-    @PostMapping(value = "/novoLivro")
+    @PostMapping(value = "/novolivro")
     public String adicionarLivro(@Valid Livro livro,BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "redirect:/livros";
